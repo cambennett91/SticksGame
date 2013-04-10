@@ -1,0 +1,101 @@
+//           Menu items
+#define FILE_ID 10
+#define EDIT_ID 11
+#define AI_ID 12
+#define HELP_ID 13
+#define FILE_NEW 101
+#define FILE_PAUSE 102
+#define FILE_EXIT 103
+#define EDIT_NAMES 201
+#define EDIT_TIMER 202
+#define AI_EASY 301
+#define AI_MEDIUM 302
+#define AI_HARD 303
+#define AI_HUMAN 304
+#define HELP_RULES 401
+#define HELP_ABOUT 402
+//            Icons
+#define ICON_STICK1 1
+#define ICON_STICK2 2
+#define ICON_STICK3 3
+//            Music
+#define MUSIC_WINNER 50
+//          Dialog Box
+#define DIALOG_BOX 1000
+#define DLG_PLAYER_ONE_NAME 1001
+#define DLG_PLAYER_ONE_CHANGE 1002
+#define DLG_PLAYER_TWO_CHANGE 1003
+#define DLG_PLAYER_TWO_NAME 1004
+#define DLG_TEXT_ONE 1005
+#define DLG_TEXT_TWO 1006
+#define DLG_CLOSE 1007
+//          Timer Box
+#define TIMER_BOX 2000
+#define TIMER_OK 2001
+#define TIMER_EDIT 2002
+#define TIMER_TEXT 2003
+//------------------------------------------------------------------------------
+//                                Icons 
+ICON_STICK1 ICON DISCARDABLE "ICON.ico"
+ICON_STICK2 ICON DISCARDABLE "internal.ico"
+ICON_STICK3 ICON DISCARDABLE "internal_sm.ico"
+//------------------------------------------------------------------------------
+//                                Sounds 
+MUSIC_WINNER WAVE DISCARDABLE "Game over.wav"
+//------------------------------------------------------------------------------
+//                               The Menu
+Generic MENU
+BEGIN
+  POPUP "&File"
+  BEGIN
+    MENUITEM "&New Game",FILE_NEW
+    MENUITEM SEPARATOR
+    MENUITEM "&Pause",FILE_PAUSE
+    MENUITEM SEPARATOR
+    MENUITEM "&Exit",FILE_EXIT
+  END
+  POPUP "&Edit"
+  BEGIN
+    MENUITEM "&Edit Timer",EDIT_TIMER
+    MENUITEM "Change Names",EDIT_NAMES
+  END
+  POPUP "&Player 2"
+  BEGIN
+    MENUITEM "&Human Player", AI_HUMAN
+    MENUITEM SEPARATOR
+    MENUITEM "&Easy",AI_EASY
+    MENUITEM "&Medium",AI_MEDIUM
+    MENUITEM "&Hard",AI_HARD
+  END
+  POPUP "&Help"
+  BEGIN
+    MENUITEM "&Rules",HELP_RULES
+    MENUITEM "&About",HELP_ABOUT
+  END
+END
+//------------------------------------------------------------------------------
+//                              The Dialog Box
+DIALOG_BOX DIALOGEX 10,115,137,80
+CAPTION "Names"
+FONT 8,"MS Sans Serif",0,0
+STYLE 0x108C0000
+BEGIN
+  CONTROL "New Name",DLG_PLAYER_ONE_NAME,"Edit",0x50010000,15,18,51,14,0x00000200
+  CONTROL "New Name",DLG_PLAYER_TWO_NAME,"Edit",0x50010000,17,46,51,13,0x00000200
+  CONTROL "Change",DLG_PLAYER_ONE_CHANGE,"Button",0x50010001,77,18,51,13
+  CONTROL "Change",DLG_PLAYER_TWO_CHANGE,"Button",0x50010001,75,46,51,13
+  CONTROL "Player One Name:",DLG_TEXT_ONE,"Static",0x50020001,3,5,51,9
+  CONTROL "Player Two Name:",DLG_TEXT_TWO,"Static",0x50020001,5,33,51,9
+  CONTROL "Accept/Close",DLG_CLOSE,"Button",0x50010001,45,64,51,13
+END
+//------------------------------------------------------------------------------
+//                              The Timer Box
+TIMER_BOX DIALOGEX 170,134,147,41
+CAPTION "Timer"
+FONT 8,"MS Sans Serif",0,0
+STYLE 0x108C0000
+BEGIN
+  CONTROL "Change",TIMER_OK,"Button",0x50010001,83,22,51,13
+  CONTROL "",TIMER_EDIT,"Edit",0x50810000,22,22,51,13
+  CONTROL "New Turn Time (seconds):",TIMER_TEXT,"Static",0x50020001,3,5,100,9
+END
