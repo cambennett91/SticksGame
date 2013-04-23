@@ -320,7 +320,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                         return 0;
                     case FILE_PAUSE:
                         if(pause_yn)Unpause(hwnd);
-                        if(!pause_yn)Pause(hwnd);
+                        else Pause(hwnd);
                         return 0;
                     case FILE_EXIT:
                         Pause(hwnd);
