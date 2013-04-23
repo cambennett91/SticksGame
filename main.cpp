@@ -40,7 +40,7 @@ void Pause(HWND hwnd); // Toggles the game between paused and unpaused
 void Unpause(HWND hwnd); // Toggles the game between paused and unpaused
 void Reset(HWND hwnd); // Start a new game
 void Winner(HWND hwnd); // tests for winnner
-void SwitchPlayer(HWND hwnd); // changes the  current player
+void SwitchPlayer(HWND hwnd); // changes the current player
 void AIControlEasy(HWND hwnd); // controls the AI
 void AIControlMedium(HWND hwnd); // controls the AI
 void AIControlHard(HWND hwnd); // controls the AI
@@ -52,9 +52,9 @@ A starting shell for a Win32 Windows Application
 Original obtained from DevC++.
 Modified by serverside (May 2007), Cam Bennett (Oct 2009)
 */
-/*  Declare Windows procedure  */
+/* Declare Windows procedure */
 LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
-/*  Make the class name into a global variable  */
+/* Make the class name into a global variable */
 char szClassName[ ] = "WindowsApp";
 
 int WINAPI WinMain (HINSTANCE hThisInstance,
@@ -62,24 +62,24 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
                     LPSTR lpszArgument,
                     int nFunsterStil)
 {
-    HWND hwnd;               /* This is the handle for our window */
-    MSG messages;            /* Here messages to the application are saved */
-    WNDCLASSEX wincl;        /* Data structure for the windowclass */
-    hMenu = LoadMenu(hThisInstance,TEXT("MyMenu"));    
+    HWND hwnd; /* This is the handle for our window */
+    MSG messages; /* Here messages to the application are saved */
+    WNDCLASSEX wincl; /* Data structure for the windowclass */
+    hMenu = LoadMenu(hThisInstance,TEXT("MyMenu"));
     handle = hThisInstance;
     /* The Window structure */
     wincl.hInstance = hThisInstance;
     wincl.lpszClassName = szClassName;
-    wincl.lpfnWndProc = WndProc;      /* This function is called by windows */
-    wincl.style = CS_DBLCLKS;                 /* Catch double-clicks */
+    wincl.lpfnWndProc = WndProc; /* This function is called by windows */
+    wincl.style = CS_DBLCLKS; /* Catch double-clicks */
     wincl.cbSize = sizeof (WNDCLASSEX);
     /* Use default icon and mouse-pointer */
     wincl.hIcon = LoadIcon (hThisInstance, MAKEINTRESOURCE (ICON_STICK1)) ;
     wincl.hIconSm = LoadIcon (handle, MAKEINTRESOURCE (ICON_STICK3));
     wincl.hCursor = LoadCursor (NULL, IDC_ARROW);
-    wincl.lpszMenuName = "Generic";                 /* "Generic" defined in RC file*/
-    wincl.cbClsExtra = 0;                      /* No extra bytes after the window class */
-    wincl.cbWndExtra = 0;                      /* structure or the window instance */
+    wincl.lpszMenuName = "Generic"; /* "Generic" defined in RC file*/
+    wincl.cbClsExtra = 0; /* No extra bytes after the window class */
+    wincl.cbWndExtra = 0; /* structure or the window instance */
     /* Use Windows's default color as the background of the window */
     wincl.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH);
     
@@ -89,18 +89,18 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
 
     /* The class is registered, let's create the program*/
     hwnd = CreateWindowEx (
-           0,                   /* Extended possibilites for variation */
-           szClassName,         /* Classname */
-           "NIM Game",          /* Title Text */
+           0, /* Extended possibilites for variation */
+           szClassName, /* Classname */
+           "NIM Game", /* Title Text */
            WS_OVERLAPPEDWINDOW, /* default window */
-           CW_USEDEFAULT,       /* Windows decides the position */
-           CW_USEDEFAULT,       /* where the window ends up on the screen */
-           520,                 /* The programs width */
-           300,                 /* and height in pixels */
-           HWND_DESKTOP,        /* The window is a child-window to desktop */
-           LoadMenu(hThisInstance,"Generic"),                /* MENU!! woo */
-           hThisInstance,       /* Program Instance handler */
-           NULL                 /* No Window Creation data */
+           CW_USEDEFAULT, /* Windows decides the position */
+           CW_USEDEFAULT, /* where the window ends up on the screen */
+           520, /* The programs width */
+           300, /* and height in pixels */
+           HWND_DESKTOP, /* The window is a child-window to desktop */
+           LoadMenu(hThisInstance,"Generic"), /* MENU!! woo */
+           hThisInstance, /* Program Instance handler */
+           NULL /* No Window Creation data */
            );
 
     /* Make the window visible on the screen */
@@ -121,7 +121,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
 //##############################################################################
 //#endregion
 
-/*  This function is called by the Windows function DispatchMessage()  */
+/* This function is called by the Windows function DispatchMessage() */
 LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     // Handle to a device context, for drawing
@@ -281,7 +281,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                  case TIMER1:
                      {
                          // If someone took too long taking sticks
-                         if(timeRemaining == 0 &&  currentSticks > 0) {
+                         if(timeRemaining == 0 && currentSticks > 0) {
                              currentSticks = 0; //this is to stop the counter and end the game
                              Winner(hwnd);
                          }
@@ -360,7 +360,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                         hard_yn = TRUE;
                         aiPlayer_yn = TRUE;
                         Reset(hwnd);
-                        return 0;                              
+                        return 0;
                     case AI_HUMAN:
                         easy_yn = FALSE;
                         medium_yn = FALSE;
@@ -377,7 +377,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                         return 0;
                     case HELP_ABOUT:
                         Pause(hwnd);
-                        MessageBox(hwnd,"This Game was created for Assessment 2 of ITC226 2009\n" 
+                        MessageBox(hwnd,"This Game was created for Assessment 2 of ITC226 2009\n"
                         "Author: Cameron Bennett, 11418586\n"
                         "Code template borrowed from Errol Chopping 2009","About",MB_OK);
                         Unpause(hwnd);
@@ -496,7 +496,7 @@ void Unpause(HWND hwnd) {
 
 /* Toggle the game being paused/unpaused */
 void Pause(HWND hwnd) {
-    pause_yn = TRUE;
+    pause_yn = !pause_yn;
     CheckMenuItem(hMenu,FILE_PAUSE,MF_CHECKED);
     KillTimer(hwnd,TIMER1);
     InvalidateRect(hwnd,NULL,TRUE); // Redraw everything
@@ -539,47 +539,47 @@ void Reset(HWND hwnd) {
 /* Create a small window for setting the turn length */
 BOOL CALLBACK Timer (HWND timerhwnd,UINT msg,WPARAM wParam,LPARAM lParam) {
     static int buffer;
-	switch( msg )
-	{
-	case WM_INITDIALOG:
-		return TRUE;
+switch( msg )
+{
+case WM_INITDIALOG:
+return TRUE;
 
-	case WM_COMMAND:
-		switch( LOWORD( wParam ) )
-		{
-		case TIMER_OK:
+case WM_COMMAND:
+switch( LOWORD( wParam ) )
+{
+case TIMER_OK:
              buffer = GetDlgItemInt(timerhwnd,TIMER_EDIT,NULL,FALSE);
              EndDialog(timerhwnd,buffer);
              return TRUE;
-		}
-		return TRUE;		
-	}
-	return FALSE;
-}     
+}
+return TRUE;	
+}
+return FALSE;
+}
 /* Create a small window for the name change function */
 BOOL CALLBACK Diag(HWND diaghwnd,UINT msg,WPARAM wParam,LPARAM lParam) {
     static char buffer[15];
-	switch( msg )
-	{
-	case WM_INITDIALOG:
-		return TRUE;
+switch( msg )
+{
+case WM_INITDIALOG:
+return TRUE;
 
-	case WM_COMMAND:
-		switch( LOWORD( wParam ) )
-		{
+case WM_COMMAND:
+switch( LOWORD( wParam ) )
+{
         case WM_INITDIALOG:
              return TRUE;
-		case DLG_PLAYER_ONE_CHANGE:
-			 GetDlgItemText(diaghwnd,DLG_PLAYER_ONE_NAME,player_one_name,15);
+case DLG_PLAYER_ONE_CHANGE:
+GetDlgItemText(diaghwnd,DLG_PLAYER_ONE_NAME,player_one_name,15);
             break;
-		case DLG_PLAYER_TWO_CHANGE:
-			 GetDlgItemText(diaghwnd,DLG_PLAYER_TWO_NAME,player_two_name,15);
+case DLG_PLAYER_TWO_CHANGE:
+GetDlgItemText(diaghwnd,DLG_PLAYER_TWO_NAME,player_two_name,15);
             break;
         case DLG_CLOSE:
              EndDialog(diaghwnd,1);
              break;
-		}
-		return TRUE;		
-	}
-	return FALSE;
+}
+return TRUE;	
+}
+return FALSE;
 }

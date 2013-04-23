@@ -1,4 +1,4 @@
-//           Menu items
+// Menu items
 #define FILE_ID 10
 #define EDIT_ID 11
 #define AI_ID 12
@@ -14,13 +14,13 @@
 #define AI_HUMAN 304
 #define HELP_RULES 401
 #define HELP_ABOUT 402
-//            Icons
+// Icons
 #define ICON_STICK1 1
 #define ICON_STICK2 2
 #define ICON_STICK3 3
-//            Music
+// Music
 #define MUSIC_WINNER 50
-//          Dialog Box
+// Dialog Box
 #define DIALOG_BOX 1000
 #define DLG_PLAYER_ONE_NAME 1001
 #define DLG_PLAYER_ONE_CHANGE 1002
@@ -29,21 +29,21 @@
 #define DLG_TEXT_ONE 1005
 #define DLG_TEXT_TWO 1006
 #define DLG_CLOSE 1007
-//          Timer Box
+// Timer Box
 #define TIMER_BOX 2000
 #define TIMER_OK 2001
 #define TIMER_EDIT 2002
 #define TIMER_TEXT 2003
 //------------------------------------------------------------------------------
-//                                Icons 
+// Icons
 ICON_STICK1 ICON DISCARDABLE "ICON.ico"
 ICON_STICK2 ICON DISCARDABLE "internal.ico"
 ICON_STICK3 ICON DISCARDABLE "internal_sm.ico"
 //------------------------------------------------------------------------------
-//                                Sounds 
+// Sounds
 MUSIC_WINNER WAVE DISCARDABLE "Game over.wav"
 //------------------------------------------------------------------------------
-//                               The Menu
+// The Menu
 Generic MENU
 BEGIN
   POPUP "&File"
@@ -74,7 +74,7 @@ BEGIN
   END
 END
 //------------------------------------------------------------------------------
-//                              The Dialog Box
+// The Dialog Box
 DIALOG_BOX DIALOGEX 10,115,137,80
 CAPTION "Names"
 FONT 8,"MS Sans Serif",0,0
@@ -89,7 +89,7 @@ BEGIN
   CONTROL "Accept/Close",DLG_CLOSE,"Button",0x50010001,45,64,51,13
 END
 //------------------------------------------------------------------------------
-//                              The Timer Box
+// The Timer Box
 TIMER_BOX DIALOGEX 170,134,147,41
 CAPTION "Timer"
 FONT 8,"MS Sans Serif",0,0
